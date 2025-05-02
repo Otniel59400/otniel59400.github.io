@@ -4,60 +4,114 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eletro+ Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
+    /* Estilo geral */
     body {
       font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
       margin: 0;
       padding: 0;
+      background-color: #f4f4f4;
     }
+
     header {
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav a {
+      background-color: #27ae60;
       color: white;
       padding: 10px 20px;
+      text-align: center;
+    }
+
+    /* Barra de navegação */
+    nav {
+      background-color: #2c3e50;
+      overflow: hidden;
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
       text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
+      font-size: 18px;
     }
+
     nav a:hover {
-      background-color: #27ae60;
+      background-color: #34495e;
     }
+
+    /* Seções principais */
+    .container {
+      padding: 20px;
+    }
+
     .produto {
       background: white;
       padding: 20px;
-      margin: 20px auto;
+      margin: 20px 0;
       border-radius: 8px;
-      max-width: 400px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
+      width: 30%;
       text-align: center;
+      margin-right: 3%;
     }
+
     .produto img {
       width: 100%;
-      height: auto;
       border-radius: 8px;
     }
-    .produto h2 {
-      color: #2c3e50;
+
+    .produto h3 {
+      margin: 15px 0 10px 0;
     }
+
     .produto p {
-      color: #34495e;
+      font-size: 18px;
+      color: #27ae60;
     }
+
     button {
       background-color: #27ae60;
       color: white;
       padding: 10px 20px;
-      font-size: 16px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
     }
+
     button:hover {
       background-color: #219150;
+    }
+
+    /* Estilos para as abas */
+    .tab {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .tab button {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .tab button.active {
+      background-color: #27ae60;
+    }
+
+    /* Responsividade */
+    @media screen and (max-width: 768px) {
+      .produto {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -65,48 +119,89 @@
 
   <header>
     <h1>Eletro+ Store</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="contato.html">Contato</a>
-    </nav>
+    <p>Os melhores acessórios e perfumes, com entrega rápida</p>
   </header>
 
-  <div class="produto">
-    <img src="fone.jpg" alt="Fone de Ouvido Bluetooth">
-    <h2>Fone de Ouvido Bluetooth</h2>
-    <p>Preço: 5.000 Kz</p>
-    <a href="https://teu-link-de-pagamento.com" target="_blank">
-      <button>Comprar agora</button>
-    </a>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <div class="container">
+    <!-- Abas -->
+    <div class="tab">
+      <button class="tablinks active" onclick="openTab(event, 'home')">Home</button>
+      <button class="tablinks" onclick="openTab(event, 'produtos')">Produtos</button>
+      <button class="tablinks" onclick="openTab(event, 'sobre')">Sobre</button>
+      <button class="tablinks" onclick="openTab(event, 'contato')">Contato</button>
+    </div>
+
+    <!-- Conteúdo das abas -->
+    <div id="home" class="tabcontent" style="display:block;">
+      <h2>Bem-vindo à Eletro+!</h2>
+      <p>Encontre os melhores acessórios e perfumes a preços incríveis. Faça sua compra de forma rápida e segura.</p>
+    </div>
+
+    <div id="produtos" class="tabcontent">
+      <h2>Produtos</h2>
+      <div class="produto">
+        <img src="https://via.placeholder.com/300x200" alt="Fone de Ouvido">
+        <h3>Fone de Ouvido Bluetooth</h3>
+        <p>Preço: 5.000 Kz</p>
+        <a href="https://teu-link-de-pagamento.com" target="_blank">
+          <button>Comprar agora</button>
+        </a>
+      </div>
+
+      <div class="produto">
+        <img src="https://via.placeholder.com/300x200" alt="Perfume Importado">
+        <h3>Perfume Importado 50ml</h3>
+        <p>Preço: 8.000 Kz</p>
+        <a href="https://teu-link-de-pagamento.com" target="_blank">
+          <button>Comprar agora</button>
+        </a>
+      </div>
+
+      <div class="produto">
+        <img src="https://via.placeholder.com/300x200" alt="Capinha de Celular">
+        <h3>Capinha para Celular</h3>
+        <p>Preço: 1.000 Kz</p>
+        <a href="https://teu-link-de-pagamento.com" target="_blank">
+          <button>Comprar agora</button>
+        </a>
+      </div>
+    </div>
+
+    <div id="sobre" class="tabcontent">
+      <h2>Sobre Nós</h2>
+      <p>Somos a Eletro+ Store, focados em fornecer os melhores produtos para você. A nossa missão é oferecer qualidade e preço justo.</p>
+    </div>
+
+    <div id="contato" class="tabcontent">
+      <h2>Contato</h2>
+      <p>Entre em contato conosco para mais informações!</p>
+      <p>Email: contato@eletroplus.com</p>
+      <p>Telefone: +244 912 345 678</p>
+    </div>
   </div>
 
-  <div class="produto">
-    <img src="perfume.jpg" alt="Perfume Importado 50ml">
-    <h2>Perfume Importado 50ml</h2>
-    <p>Preço: 8.000 Kz</p>
-    <a href="https://teu-link-de-pagamento.com" target="_blank">
-      <button>Comprar agora</button>
-    </a>
-  </div>
-
-  <div class="produto">
-    <img src="carregador.jpg" alt="Carregador Rápido USB-C">
-    <h2>Carregador Rápido USB-C</h2>
-    <p>Preço: 2.500 Kz</p>
-    <a href="https://teu-link-de-pagamento.com" target="_blank">
-      <button>Comprar agora</button>
-    </a>
-  </div>
-
-  <div class="produto">
-    <img src="capinha.jpg" alt="Capinha para Celular">
-    <h2>Capinha para Celular</h2>
-    <p>Preço: 1.000 Kz</p>
-    <a href="https://teu-link-de-pagamento.com" target="_blank">
-      <button>Comprar agora</button>
-    </a>
-  </div>
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
 
 </body>
 </html>
